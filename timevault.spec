@@ -12,7 +12,7 @@ License: GPL
 Group:   System/Configuration/Other
 BuildRoot: %{_tmppath}/gnome-python-root
 BuildRequires: python-devel >= 2.2
-BuildRequires: gnome-common
+BuildRequires: gnome-common intltool
 BuildRequires: gnome-python-devel nautilus-python pygtk2.0-devel python-gnome-devel
 BuildRequires: autoconf automake make
 Requires: pygtk2.0
