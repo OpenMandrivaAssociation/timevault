@@ -1,7 +1,7 @@
 Summary: Front-end for making snapshots of a set of directories
 Name:    timevault
 Version: 0.7.5
-Release: %mkrel 1
+Release: %mkrel 2
 Source:  %name-%version.tar.bz2
 # make it using existing macros:
 Patch0:   timevault-init-mdv.patch
@@ -10,13 +10,15 @@ Patch1:   timevault-init-chkconfig.patch
 URL:     https://wiki.ubuntu.com/TimeVault
 License: GPL
 Group:   System/Configuration/Other
-BuildRoot: %{_tmppath}/gnome-python-root
+BuildRoot: %{_tmppath}/%name-root
 BuildRequires: python-devel >= 2.2
 BuildRequires: gnome-common intltool
-BuildRequires: gnome-python-devel nautilus-python pygtk2.0-devel python-gnome-devel python-notify python-dbus dbus-devel
-BuildRequires: autoconf automake make
-Requires: pygtk2.0
-Requires(post,preun): rpm-helper
+BuildRequires: gnome-python-devel nautilus-python pygtk2.0-devel python-notify python-dbus dbus-devel
+Requires: nautilus-python
+Requires: python-dbus
+Requires: python-notify
+Requires(post): rpm-helper
+Requires(preun): rpm-helper
 
 %description
 TimeVault is a simple front-end for making snapshots of a set of directories.
@@ -34,24 +36,30 @@ still be accessible.
 %setup -q
 %patch0 -p0
 %patch1 -p0
+[[ -x ./configure ]] || ./autogen.sh
 
 %build
-[[ -x ./configure ]] || ./autogen.sh
-%configure2_5x --libdir=%_libdir
+%configure2_5x
 %make
 
 %install
 rm -rf %buildroot
 %makeinstall_std
+mkdir -p %buildroot%_libdir/nautilus/extensions-2.0
+mv %buildroot%_prefix/lib/nautilus/extensions-1.0/* %buildroot%_libdir/nautilus/extensions-2.0 
 
 %clean
 rm -rf %buildroot
 
 %post
 %_post_service %name
+%update_icon_cache hicolor
 
 %preun
 %_preun_service %name
+
+%postun
+%clean_icon_cache hicolor
 
 %files
 %defattr(-,root,root,755)
@@ -66,6 +74,7 @@ rm -rf %buildroot
 %_iconsdir/hicolor/32x32/apps/timevault.png
 %_iconsdir/hicolor/scalable/apps/timevault.svg
 %py_platsitedir/TimeVault
-/usr/lib/nautilus/extensions-1.0/python/timevault-nautilus.py
+#gw this dir is arch dependant:
+%_libdir/nautilus/extensions-2.0/python/timevault-nautilus.py
 
 
