@@ -7,11 +7,12 @@ Source:  %name-%version.tar.bz2
 Patch0:   timevault-init-mdv.patch
 # make it chkconfig aware:
 Patch1:   timevault-init-chkconfig.patch
+Patch2:  timevault-0.7.5-recognize-py2.6.patch
 URL:     https://wiki.ubuntu.com/TimeVault
 License: GPL
 Group:   System/Configuration/Other
 BuildRoot: %{_tmppath}/%name-root
-BuildRequires: python-devel >= 2.2
+%py_requires -d
 BuildRequires: gnome-common intltool
 BuildRequires: gnome-python-devel nautilus-python pygtk2.0-devel python-notify python-dbus dbus-devel
 Requires: nautilus-python
@@ -36,6 +37,7 @@ still be accessible.
 %setup -q
 %patch0 -p0
 %patch1 -p0
+%patch2 -p0
 [[ -x ./configure ]] || ./autogen.sh
 
 %build
