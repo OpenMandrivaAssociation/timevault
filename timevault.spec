@@ -1,7 +1,7 @@
 Summary: Front-end for making snapshots of a set of directories
 Name:    timevault
 Version: 0.7.5
-Release: %mkrel 6
+Release: %mkrel 7
 Source:  %name-%version.tar.bz2
 # make it using existing macros:
 Patch0:   timevault-init-mdv.patch
@@ -18,6 +18,7 @@ BuildRequires: gnome-python-devel nautilus-python pygtk2.0-devel python-notify p
 Requires: nautilus-python
 Requires: python-dbus
 Requires: python-notify
+Requires: python-gamin python-sqlite2
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 
@@ -55,13 +56,9 @@ rm -rf %buildroot
 
 %post
 %_post_service %name
-%update_icon_cache hicolor
 
 %preun
 %_preun_service %name
-
-%postun
-%clean_icon_cache hicolor
 
 %files
 %defattr(-,root,root,755)
@@ -78,5 +75,3 @@ rm -rf %buildroot
 %py_platsitedir/TimeVault
 #gw this dir is arch dependant:
 %_libdir/nautilus/extensions-2.0/python/timevault-nautilus.py
-
-
