@@ -7,7 +7,7 @@ Source:  %name-%version.tar.bz2
 Patch0:   timevault-init-mdv.patch
 # make it chkconfig aware:
 Patch1:   timevault-init-chkconfig.patch
-Patch2:  timevault-0.7.5-recognize-py2.6.patch
+Patch2:  timevault-0.7.5-recognize-py2.7.patch
 URL:     https://wiki.ubuntu.com/TimeVault
 License: GPL
 Group:   System/Configuration/Other
