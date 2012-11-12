@@ -1,0 +1,13 @@
+--- configure.ac.orig	2007-12-10 17:10:14.000000000 +0200
++++ configure.ac	2010-11-02 16:34:00.511080624 +0200
+@@ -19,8 +19,8 @@
+ AM_GLIB_GNU_GETTEXT
+ IT_PROG_INTLTOOL([0.35.0])
+ 
+-dnl AM_PATH_PYTHON_VERSION(2.4, 2.4.0, 2.5, 2.5.0)
+-AM_PATH_PYTHON_VERSION(2.5, 2.5.0)
++dnl AM_PATH_PYTHON_VERSION(2.4, 2.4.0, 2.5, 2.5.0, 2.6, 2.6.0, 2.7, 2.7.0)
++AM_PATH_PYTHON_VERSION(2.5, 2.5.0, 2.6, 2.6.0, 2.7, 2.7.0)
+ 
+ PKG_CHECK_MODULES(TIMEVAULT, pygobject-2.0 pygtk-2.0 gnome-python-2.0 nautilus-python notify-python dbus-python)
+ 
