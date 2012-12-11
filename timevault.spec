@@ -75,3 +75,55 @@ rm -rf %buildroot
 %py_platsitedir/TimeVault
 #gw this dir is arch dependant:
 %_libdir/nautilus/extensions-2.0/python/timevault-nautilus.py
+
+
+%changelog
+* Tue Nov 02 2010 Ahmad Samir <ahmadsamir@mandriva.org> 0.7.5-8mdv2011.0
++ Revision: 592229
+- rediff P2 to make it detect python 2.7
+
+  + Michael Scherer <misc@mandriva.org>
+    - rebuild for python 2.7
+
+* Fri Aug 13 2010 Ahmad Samir <ahmadsamir@mandriva.org> 0.7.5-7mdv2011.0
++ Revision: 569370
+- add requires on python-gamin and python-sqlite2 (mdv#60623)
+- remove the %%*_icon_cache bits, handled by rpm filetriggers
+
+* Sun Sep 20 2009 Thierry Vignaud <tv@mandriva.org> 0.7.5-6mdv2010.0
++ Revision: 445442
+- rebuild
+
+* Sat Jan 10 2009 Funda Wang <fwang@mandriva.org> 0.7.5-5mdv2009.1
++ Revision: 327939
+- recognize python 2.6
+
+* Sun Aug 03 2008 Thierry Vignaud <tv@mandriva.org> 0.7.5-5mdv2009.0
++ Revision: 261539
+- rebuild
+
+* Wed Jul 30 2008 Thierry Vignaud <tv@mandriva.org> 0.7.5-4mdv2009.0
++ Revision: 254550
+- rebuild
+
+* Wed Jan 23 2008 Götz Waschk <waschk@mandriva.org> 0.7.5-2mdv2008.1
++ Revision: 157107
+- fix nautilus extensions dir
+- handle icon cache
+- fix deps
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Mon Dec 10 2007 Thierry Vignaud <tv@mandriva.org> 0.7.5-1mdv2008.1
++ Revision: 117034
+- python-notify python-dbus
+- import timevault
+
+
+* Mon Dec 10 2007 Thierry Vignaud <tvignaud@mandriva.com> 0.7.5-1mdv2008.1
+- initial release
+
