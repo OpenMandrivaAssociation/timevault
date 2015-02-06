@@ -4,7 +4,7 @@
 Summary: Front-end for making snapshots of a set of directories
 Name:    timevault
 Version: 0.7.5
-Release: 9
+Release: 10
 Source:  %{name}-%{version}.tar.bz2
 # make it using existing macros:
 Patch0:   timevault-init-mdv.patch
